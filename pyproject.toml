@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sandbox_escape_finder"
+version = "0.1.0"
+description = "Static + dynamic finder for Python sandbox-escape techniques, evaluated against RestrictedPython."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Raiyanul Islam" }]
+
+# Pinned so the install is reproducible (Definition of Done requirement).
+dependencies = [
+    "RestrictedPython==8.5",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.3",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
